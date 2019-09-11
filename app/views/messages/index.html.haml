@@ -1,0 +1,39 @@
+.chatspace
+  = render "side_bar"
+  .chat-main
+    .chat-header
+      .chat-header__left-box
+        %h2.chat-header__left-box__group
+          crypto group
+        %ul.chat-header__left-box__member-list
+          Members: test-user
+      .chat-header__right-box
+        .chat-header__right-box__edit
+          Edit
+
+    .chat-body
+      .chat-body__message
+        .chat-body__message__info
+          %p.chat-body__message__info__talker
+            test-user
+          %p.chat-body__message__info__date
+            2016/09/21(Mon) 06:16:55
+        %p.chat-body__message__text
+          こんにちは
+      .chat-body__message
+        .chat-body__message__info
+          %p.chat-body__message__info__talker
+            test-user
+          %p.chat-body__message__info__date
+            2016/09/21(Mon) 22:16:55
+        %p.chat-body__message__text
+          さようなら
+
+    .chat-footer
+      %form{class: "chat-footer__new-message", action: "", "accept-charset": "UTF-8", method: "post"}
+        .chat-footer__new-message__input-box
+          %input{placeholder: "type a message", class: "chat-footer__new-message__input-box__text", type: "text", name: "message[content]", id: "message_content"}
+          %label{class: "chat-footer__new-message__input-box__image", for: "message_image"}
+            = fa_icon 'image'
+            %input{class: "chat-footer__new-message__input-box__image__file", type: "file", name: "message[image]", id: "message_image"}
+        %input{class: "chat-footer__new-message__submit-btn", type: "submit", name: "commit", value: "Send", "data-disable-with": "Send"}

@@ -1,0 +1,14 @@
+.chat-side
+  .chat-user
+    .chat-user__name
+      %p test-user
+    .chat-user__icon
+      .chat-user__icon__left
+        = fa_icon 'edit', class: "chat-user__icon--group"
+      .chat-user__icon__right
+        = fa_icon 'cog', class: "chat-user__icon--user"
+  .chat-group
+    .chat-group__name
+      %p sample
+    .chat-group__messages
+      %p good bye world!
