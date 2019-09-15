@@ -1,8 +1,10 @@
-@import "reset";
 @import "font-awesome";
-@import "variable";
-@import "side";
-@import "main";
-@import "clearfix";
-
-
+@import "config/colors";
+@import "config/reset";
+@import "config/variable";
+@import "mixin/clearfix";
+@import "modules/side";
+@import "modules/main";
+@import "modules/user";
+@import "modules/group";
+@import "flash";
