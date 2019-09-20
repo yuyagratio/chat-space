@@ -40,5 +40,9 @@ $(function() {
       $("#new_message")[0].reset();
       $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight }, "first");
     })
+    .fail(function() {
+      alert('メッセージを入力してください');
+    });
+    return false;
   });
 });
