@@ -1,4 +1,24 @@
 $(function() {
+  function buildHTML(message){
+    var image = message.image ? `<img src"=${message.image}">` : "";
+    var html = `<div class="message" data-id=${message.id}>
+                  <div class="message__upper-info">
+                    <div class="message__upper-info__user">
+                      ${message.user_name}
+                    </div>
+                    <div class="message__upper-info__date">
+                      ${message.date}
+                    </div>
+                    <div class="message__text">
+                      <p class="lower-message__content">
+                        ${message.content}
+                      </p>
+                    </div>
+                    ${image}
+                  </div>`;
+    return html;
+  }
+
   $("#new_message").on("submit", function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -11,5 +31,9 @@ $(function() {
       processData: false,
       contentType: false
     })
+    .done(function(data) {
+      var html = buildHTML(data);
+      console.log(html);
+    })
   });
-})
+});
