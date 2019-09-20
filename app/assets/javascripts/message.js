@@ -34,9 +34,10 @@ $(function() {
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.messages').append(html);
+      $(".messages").append(html);
       $(".input-box__text").val("");
-      $('#new_message')[0].reset();
+      $("#new_message")[0].reset();
+      $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight }, "first");
     })
   });
 });
