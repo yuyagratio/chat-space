@@ -9,13 +9,14 @@ $(function() {
                     <div class="message__upper-info__date">
                       ${message.date}
                     </div>
-                    <div class="message__text">
-                      <p class="lower-message__content">
-                        ${message.content}
-                      </p>
-                    </div>
+                  </div>
+                  <div class="message__text">
+                    <p class="lower-message__content">
+                      ${message.content}
+                    </p>
                     ${image}
-                  </div>`;
+                  </div>
+                </div>`;
     return html;
   }
 
@@ -33,7 +34,9 @@ $(function() {
     })
     .done(function(data) {
       var html = buildHTML(data);
-      console.log(html);
+      $('.messages').append(html);
+      $(".input-box__text").val("");
+      $('#new_message')[0].reset();
     })
   });
 });
