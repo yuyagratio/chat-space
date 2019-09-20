@@ -36,7 +36,6 @@ $(function() {
       var html = buildHTML(data);
       $(".messages").append(html);
       $(".new-message__submit-btn").attr("disabled", false);
-      $(".input-box__text").val("");
       $("#new_message")[0].reset();
       $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight }, "first");
     })
