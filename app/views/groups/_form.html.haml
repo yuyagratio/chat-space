@@ -19,11 +19,21 @@
       #user-search-result
   .chat-group-form__field
     .chat-group-form__field--left
-      %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
+      = f.label "チャットメンバー", class: "chat-group-form__label"
     .chat-group-form__field--right
-      / グループ作成機能の追加時はここにcollection_check_boxesの記述をする
-      = f.collection_check_boxes :user_ids, User.all, :id, :name
-      / この部分はインクリメンタルサーチ(ユーザー追加の非同期化のときに使用する)
+      .chat-group-users
+        .chat_group-user
+          %input{name: "group[user_ids][]", type: "hidden", value: "#{current_user.id}"}
+          .chat-group-user__name
+            = current_user.name
+        - group.users.each do |member|
+          #add-user-list
+            .chat-group-user
+              - if member.id != current_user.id
+                .chat-group-user__name
+                  %input{ name: "group[user_ids][]", type: "hidden", value: "#{member.id}"}
+                  = member.name
+                .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
   .chat-group-form__field
     .chat-group-form__field--left
     .chat-group-form__field--right
