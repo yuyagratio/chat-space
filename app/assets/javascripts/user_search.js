@@ -14,6 +14,15 @@ $(function() {
     return html;
   }
 
+  function addUser(name, id) {
+    var html = `<div class='chat-group-user'>
+                  <input name='group[user_ids][]' type='hidden' value=${id}>
+                  <p class='chat-group-user__name'>${name}</p>
+                  <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+                </div>`
+    $(".chat-group-users").append(html);
+  }
+
   $(function() {
     $("#user-search-field").on("keyup", function() {
       var input = $("#user-search-field").val();
@@ -45,6 +54,10 @@ $(function() {
 
   $(function(){
     $("#user-search-result").on("click", ".chat-group-user__btn--add", function(){
+      var name = $(this).attr("data-user-name");
+      var id = $(this).attr("data-user-id");
+      addUser(name, id);
+      $(this).parent().remove();
     })
-  })
+  });
 });
