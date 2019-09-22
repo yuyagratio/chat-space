@@ -37,7 +37,6 @@ $(function() {
         $("#user-search-result").empty();
         if (users.length !== 0) {
           users.forEach(function(user){
-            searchUser(user);
             var html = searchUser(user);
             $("#user-search-result").append(html);
           });
