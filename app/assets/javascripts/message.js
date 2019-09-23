@@ -59,6 +59,7 @@ $(function() {
         insertHTML += buildHTML(message);
         $(".messages").append(insertHTML);
       });
+      $(".messages").animate({ scrolsslTop: $(".messages")[0].scrollHeight }, "first");
     })
     .fail(function(){
       console.log('error');
