@@ -10,10 +10,7 @@
           - @group.users.each do |user|
             = user.name
       .right-header
-        .right-header__group-edit
-          = link_to edit_group_path(@group) do
-            .right-header__group-edit__letter
-              Edit
+        = link_to "Edit", edit_group_path(@group),class: "right-header__group-edit__letter"
     .messages
       = render partial: 'message', collection: @messages
     .form
