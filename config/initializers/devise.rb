@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '13caf2a3e0c2d0780bd4a4be4c9bea7c3d0943e85789c8f1363b63226794fb4fe5d6a56b3f4774db0c065da00878c7593005a05a4ea7b899b86f799c8859164b'
+  config.secret_key = 'acd93f42f013fc3f42b09496b612888886ee6f32671662fcfc267aeba4d4455c5535405891047edf05cc4ee6abeb7d90da215c3794afc1308d75f442113aeca4'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -159,7 +159,6 @@ Devise.setup do |config|
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
-
   # Options to be passed to the created cookie. For instance, you can set
   # secure: true in order to force SSL only cookies.
   # config.rememberable_options = {}
