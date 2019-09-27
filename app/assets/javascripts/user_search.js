@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load',function() {
   function searchUser(user){
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
