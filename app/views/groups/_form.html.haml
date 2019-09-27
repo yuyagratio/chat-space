@@ -18,19 +18,18 @@
       .chat-group-form__search.clearfix
         %input#user-search-field.chat-group-form__input{placeholder: "追加したいユーザー名を入力してください", type: "text"}
         #user-search-result
-
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label "チャットメンバー", class: "chat-group-form__label"
     .chat-group-form__field--right
       .chat-group-users
-        .chat_group-user
+        .chat-group-user.clearfix.js-chat-member
           %input{name: "group[user_ids][]", type: "hidden", value: "#{current_user.id}"}
-          .chat-group-user__name
+          %p.chat-group-user__name
             = current_user.name
         - group.users.each do |member|
           #add-user-list
-            .chat-group-user
+            .chat-group-user.clearfix.js-chat-member
               - if member.id != current_user.id
                 .chat-group-user__name
                   %input{ name: "group[user_ids][]", type: "hidden", value: "#{member.id}"}
