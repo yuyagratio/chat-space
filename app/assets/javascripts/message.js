@@ -7,7 +7,7 @@ $(document).on("turbolinks:load", function() {
                       ${message.user_name}
                     </div>
                     <div class="message__upper-info__date">
-                      ${message.date}
+                      ${message.created_at}
                     </div>
                   </div>
                   <div class="message__text">
@@ -40,11 +40,14 @@ $(document).on("turbolinks:load", function() {
       $(".messages").animate(
         { scrollTop: $(".messages")[0].scrollHeight },
         "first"
-      );
+      )
     })
     .fail(function() {
       alert("メッセージを入力してください");
-    });
+    })
+    .always(function() {
+      $('.new-message__submit-btn').removeAttr("disabled");
+    })
   });
 
   var reloadMessages = function() {
@@ -62,7 +65,7 @@ $(document).on("turbolinks:load", function() {
           insertHTML += buildHTML(message);
           $(".messages").append(insertHTML);
         });
-        if (inxertHTML.length != 0){
+        if (insertHTML.length != 0){
           $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight },"first");
         }
       })
